@@ -23,8 +23,8 @@ target_link_libraries(cdap-test cdap pthread)
 target_link_libraries(raft-test rlite-raft)
 
 # Installation directives
-install(TARGETS rina-api cdap rlite-conf DESTINATION usr/lib)
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/CDAP.pb.h DESTINATION usr/include/rlite)
+install(TARGETS rina-api cdap rlite-conf DESTINATION lib)
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/CDAP.pb.h DESTINATION include/rlite)
 
 add_test(NAME raft COMMAND raft-test)
 add_test(NAME cdap COMMAND cdap-test)

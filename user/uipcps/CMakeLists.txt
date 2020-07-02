@@ -20,7 +20,7 @@ add_executable(rlite-uipcps uipcp-container.c uipcp-unix.c uipcp-shim-tcp4.c uip
 target_link_libraries(rlite-uipcps rina-api rlite-conf uipcp-normal rlite-wifi)
 
 # Installation directives
-install(TARGETS rlite-uipcps DESTINATION usr/bin)
+install(TARGETS rlite-uipcps DESTINATION bin)
 install(FILES shim-tcp4-dir DESTINATION etc/rina)
 
 # Tests

@@ -28,11 +28,11 @@ target_link_libraries(iporinad rina-api cdap fdfwd ${CMAKE_THREAD_LIBS_INIT})
 target_link_libraries(test-wifi rina-api rlite-wifi)
 
  # Installation directives
-install(TARGETS rinaperf rlite-ctl rina-gw rina-echo-async iporinad DESTINATION usr/bin)
+install(TARGETS rinaperf rlite-ctl rina-gw rina-echo-async iporinad DESTINATION bin)
 if (MAC2IFNAME)
-install(TARGETS mac2ifname DESTINATION usr/bin)
+install(TARGETS mac2ifname DESTINATION bin)
 endif()
 install(FILES rina-gw.conf iporinad.conf initscript DESTINATION etc/rina)
-install(PROGRAMS inet-toy rina-toy rlite-node-config DESTINATION usr/bin)
+install(PROGRAMS inet-toy rina-toy rlite-node-config DESTINATION bin)
 
 add_subdirectory(rinacat)

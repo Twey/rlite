@@ -44,9 +44,9 @@ endif()
 
 include_directories(${INCLUDE_DIR})
 
-install(FILES ${RLITE_HEADERS} DESTINATION usr/include/rlite)
-install(FILES include/rina/cdap.hpp DESTINATION usr/include/rina)
-install(FILES "include/rina/api.h" DESTINATION usr/include/rina)
+install(FILES ${RLITE_HEADERS} DESTINATION include/rlite)
+install(FILES include/rina/cdap.hpp DESTINATION include/rina)
+install(FILES "include/rina/api.h" DESTINATION include/rina)
 file(GLOB BASH_COMPLETION_FILES "scripts/bash_completion/*")
 install(FILES ${BASH_COMPLETION_FILES} DESTINATION etc/bash_completion.d)
 
