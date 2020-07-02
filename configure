@@ -398,7 +398,7 @@ if [ ${BUILD_USER} == "y" ]; then
         # have "scan-build" available for the superuser (and the
         # ker target is invoked on "sudo make install")
         KER_INSTALL_DEPS=""
-        if [ $(which scan-build) ]; then
+        if [ $(type -P scan-build) ]; then
             CLANG_PREFIX="scan-build"
         fi
     fi
@@ -444,8 +444,8 @@ ln -sf ../../common/utils.c utils.c
 )
 
 if [[ "$USE_CLANG" == "y" ]]; then
-    export CC=/usr/bin/clang
-    export CXX=/usr/bin/clang++
+    export CC=$(type -P clang)
+    export CXX=$(type -P clang++)
 fi
 
 if [ ${BUILD_USER} == "y" ]; then
@@ -454,8 +454,8 @@ if [ ${BUILD_USER} == "y" ]; then
     mkdir build || exit 255
 
     if [ "$IWYU" == "y" ]; then
-        CMAKE_EXTRA+="-DCMAKE_CXX_INCLUDE_WHAT_YOU_USE=/usr/bin/iwyu;-Xiwyu;any;-Xiwyu;iwyu;-Xiwyu;args"
-        CMAKE_EXTRA+="-DCMAKE_C_INCLUDE_WHAT_YOU_USE=/usr/bin/iwyu;-Xiwyu;any;-Xiwyu;iwyu;-Xiwyu;args"
+        CMAKE_EXTRA+="-DCMAKE_CXX_INCLUDE_WHAT_YOU_USE=$(type -P iwyu);-Xiwyu;any;-Xiwyu;iwyu;-Xiwyu;args"
+        CMAKE_EXTRA+="-DCMAKE_C_INCLUDE_WHAT_YOU_USE=$(type -P iwyu);-Xiwyu;any;-Xiwyu;iwyu;-Xiwyu;args"
     fi
 
     (
